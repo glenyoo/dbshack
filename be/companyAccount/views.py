@@ -3,11 +3,16 @@ from rest_framework.response import Response
 from rest_framework import generics
 from .models import CompanyAccount
 from .serializers import CompanyAccountSerializers
+from rest_framework.permissions import IsAuthenticated
+from user.models import CustomUser
 
 class ListCompanyAccounts(APIView):
+    permission_classes = [IsAuthenticated]
 
-    def getall(self, request, format=None):
-        accounts = CompanyAccount.objects.all()
+    def get(self, request, format=None):
+        print(request.user.username)
+        company_id = CustomUser.objects.get(username=request.user.username).company_id
+        accounts = CompanyAccount.objects.get(id=company_id)
         serializer = CompanyAccountSerializers(accounts)
         return Response(serializer.data)
     # def post(self, request, format=None):
