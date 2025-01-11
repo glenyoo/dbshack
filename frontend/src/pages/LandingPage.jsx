@@ -1,8 +1,12 @@
 import React from 'react'
+import RequestContainer from '../components/RequestContainer'
 
 const LandingPage = () => {
   return (
-    <div>LandingPage</div>
+    <>
+        <div>LandingPage</div>
+        <RequestContainer />
+    </>
   )
 }
 

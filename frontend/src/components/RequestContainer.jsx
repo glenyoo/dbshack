@@ -1,8 +1,11 @@
 import React from 'react'
+import { useLocation } from 'react-router-dom';
 import Request from './Request';
 import Table from 'react-bootstrap/Table';
 
 const RequestContainer = () => {
+    const {pathname} = useLocation()
+
     const data = [
         {
             requestDate: "11/01/2025",
@@ -43,6 +46,7 @@ const RequestContainer = () => {
           <th>Carbon Quantity</th>
           <th style={{width: '600px'}}>Requesting Reason</th>
           <th>Request Type</th>
+          {pathname === '/home' && <th style={{width: '300px'}}>Edit/Delete</th>}
         </tr>
       </thead>
       <tbody>
