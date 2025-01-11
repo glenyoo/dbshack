@@ -1,12 +1,16 @@
 import React from 'react'
 import Button from 'react-bootstrap/Button';
 import { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
-const Request = ({ requestDate, companyName, carbonPrice, carbonQuantity, requestReason, requestType, handleEdit, handleDelete}) => {
-    const {pathname} = useLocation()
+const Request = ({ requestId, requestDate, companyName, carbonPrice, carbonQuantity, requestReason, requestType, handleEdit, handleDelete}) => {
+    const navigate = useNavigate();
+    const {pathname} = useLocation();
     const [isDelete, setIsDelete] = useState(false);
 
+    const navigateEdit = () => {
+        navigate(`/edit/${requestId}`)
+    }
 
     return (
     <tr>
@@ -20,7 +24,7 @@ const Request = ({ requestDate, companyName, carbonPrice, carbonQuantity, reques
         {pathname === '/home' && (
             !isDelete ?
             <td>
-                <Button onClick={handleEdit} variant="primary">Edit</Button>
+                <Button onClick={() => navigateEdit()} variant="primary">Edit</Button>
                 <Button onClick={() => {setIsDelete(true)}} variant="danger">Delete</Button>
             </td> :
             <td>

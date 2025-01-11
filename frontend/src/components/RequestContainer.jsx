@@ -3,39 +3,11 @@ import { useLocation } from 'react-router-dom';
 import Request from './Request';
 import Table from 'react-bootstrap/Table';
 
-const RequestContainer = () => {
+const RequestContainer = ({ records }) => {
     const {pathname} = useLocation()
-
-    const data = [
-        {
-            requestDate: "11/01/2025",
-            companyName: "Test",
-            carbonPrice: "1",
-            carbonQuantity: "400",
-            requestReason: "Projected excess carbon credits for 2025",
-            requestType: "Sell"
-        },
-        {
-            requestDate: "11/01/2025",
-            companyName: "Test2",
-            carbonPrice: "1",
-            carbonQuantity: "600",
-            requestReason: "Projected excess carbon credits for 2025",
-            requestType: "Sell"
-        },
-        {
-            requestDate: "11/01/2025",
-            companyName: "Test3",
-            carbonPrice: "1",
-            carbonQuantity: "700",
-            requestReason: "Projected excess carbon credits for 2025",
-            requestType: "Sell"
-        }
-    ]
 
   return (
     <>
-        <div>Outstanding Requests</div>
     <Table striped bordered hover>
       <thead>
         <tr>
@@ -50,7 +22,7 @@ const RequestContainer = () => {
         </tr>
       </thead>
       <tbody>
-        {data.map((request, index) => 
+        {records.map((request, index) => 
             <Request
                 key = {index}
                 requestDate = {request.requestDate}
