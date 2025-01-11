@@ -9,8 +9,8 @@ const LandingPage = () => {
   const [addRequest, setAddRequest] = useState(false);
 
   const fetchData= () => {
-    api.post(`/api/token`, { 
-        user 
+    api.post(`/api/token/`, { 
+        
     })
     .then(res => {
       console.log(res);

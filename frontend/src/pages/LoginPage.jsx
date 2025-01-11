@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody, MDBInput, MDBBtn } from 'mdb-react-ui-kit';
+import axios from 'axios';
 
 export default function LoginPage() {
     const [loginData, setLoginData] = useState({ email: '', password: '' });
@@ -17,18 +18,25 @@ export default function LoginPage() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
+        console.log(1)
         // Check if any user matches the login credentials
-        const user = mockUsers.find(user => user.email === loginData.email && user.password === loginData.password);
+        axios.post('http://127.0.0.1:8000/api/token/', {
+            username: "bwth",
+            password: "1234"
+        }).then(res => {
+            console.log(res)
+            console.log(res.data)
+        })
+        // const user = mockUsers.find(user => user.email === loginData.email && user.password === loginData.password);
         
-        if (user) {
-            console.log('Login successful!');
-            alert('Login successful!');
-            // Redirect or further processing
-        } else {
-            console.log('Login failed!');
-            alert('Invalid credentials!');
-        }
+        // if (user) {
+        //     console.log('Login successful!');
+        //     alert('Login successful!');
+        //     // Redirect or further processing
+        // } else {
+        //     console.log('Login failed!');
+        //     alert('Invalid credentials!');
+        // }
     };
 
     return (
