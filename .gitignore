@@ -3,3 +3,4 @@ venv
 be/.env
 be/*/__pycache__
 *.pyc
+test.db
