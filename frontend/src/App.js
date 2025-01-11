@@ -1,11 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import Requests from './pages/Requests';
-import SignOut from './pages/SignOut';
 import AppNavbar from './components/Navbar';
-import RequestContainer from './components/RequestContainer';
-import RequestForm from './components/RequestForm';
+import LoginPage from './pages/LoginPage';
+import LandingPage from './pages/LandingPage';
+import RequestPage from './pages/RequestPage';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css'
 
 function App() {
@@ -14,9 +12,9 @@ function App() {
       <div>
         <AppNavbar />
         <Routes>
-          <Route path="/pages/" element={<Home />} />
-          <Route path="/pages/requests" element={<Requests />} />
-          <Route path="/pages/signout" element={<SignOut />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/home" element={<LandingPage />} />
+          <Route path="/requests" element={<RequestPage />} />
         </Routes>
       </div>
     </Router>
