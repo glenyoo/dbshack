@@ -1,43 +1,35 @@
-// src/components/Navbar.js
 import React from 'react';
-import {
-  MDBNavbar, MDBContainer, MDBNavbarBrand, MDBNavbarToggler, MDBIcon,
-  MDBNavbarNav, MDBNavbarItem, MDBNavbarLink, MDBCollapse
-} from 'mdb-react-ui-kit';
+import { MDBNavbar, MDBContainer, MDBNavbarBrand, MDBNavbarNav, MDBNavbarItem, MDBNavbarLink } from 'mdb-react-ui-kit';
+import { Link } from 'react-router-dom';
 
-export default function AppNavbar() {
-  const [showNavRight, setShowNavRight] = React.useState(false);
-
+export default function Navbar() {
   return (
-    <MDBNavbar expand='lg' light bgColor='white'>
+    <MDBNavbar expand='lg' light bgColor='light'>
       <MDBContainer fluid>
-        <MDBNavbarBrand href='#'>Brand</MDBNavbarBrand>
-        <MDBNavbarToggler
-          type='button'
-          aria-expanded='false'
-          aria-label='Toggle navigation'
-          onClick={() => setShowNavRight(!showNavRight)}
-        >
-          <MDBIcon icon='bars' fas />
-        </MDBNavbarToggler>
-        <MDBCollapse navbar show={showNavRight}>
-          <MDBNavbarNav right fullWidth={false} className='mb-2 mb-lg-0'>
-            <MDBNavbarItem>
-              <MDBNavbarLink active aria-current='page' href='#'>
-                Home
-              </MDBNavbarLink>
-            </MDBNavbarItem>
-            <MDBNavbarItem>
-              <MDBNavbarLink href='#'>Features</MDBNavbarLink>
-            </MDBNavbarItem>
-            <MDBNavbarItem>
-              <MDBNavbarLink href='#'>Pricing</MDBNavbarLink>
-            </MDBNavbarItem>
-            <MDBNavbarItem>
-              <MDBNavbarLink href='#'>About</MDBNavbarLink>
-            </MDBNavbarItem>
-          </MDBNavbarNav>
-        </MDBCollapse>
+        <MDBNavbarBrand>
+          <Link to="/" className="navbar-brand">BrandName</Link>
+        </MDBNavbarBrand>
+        <MDBNavbarNav right fullWidth={false} className='mb-2 mb-lg-0'>
+          <MDBNavbarItem>
+            {/* <MDBNavbarLink as={Link} to="/">Home</MDBNavbarLink> */}
+            <Link to="/" className="navbar-brand">Home</Link>
+          </MDBNavbarItem>
+          <MDBNavbarItem>
+            {/* <MDBNavbarLink as={Link} to="/about">About</MDBNavbarLink> */}
+            <Link to="/about" className="navbar-brand">About</Link>
+
+          </MDBNavbarItem>
+          <MDBNavbarItem>
+            {/* <MDBNavbarLink as={Link} to="/services">Services</MDBNavbarLink> */}
+            <Link to="/services" className="navbar-brand">Services</Link>
+
+          </MDBNavbarItem>
+          <MDBNavbarItem>
+            {/* <MDBNavbarLink as={Link} to="/contact">Contact</MDBNavbarLink> */}
+            <Link to="/contact" className="navbar-brand">Contact</Link>
+
+          </MDBNavbarItem>
+        </MDBNavbarNav>
       </MDBContainer>
     </MDBNavbar>
   );
