@@ -6,7 +6,7 @@ from .serializers import CompanyAccountSerializers
 
 class ListCompanyAccounts(APIView):
 
-    def getall(self, request, format=None):
+    def get(self, request, format=None):
         accounts = CompanyAccount.objects.all()
         serializer = CompanyAccountSerializers(accounts)
         return Response(serializer.data)
@@ -20,7 +20,7 @@ class ListCompanyAccounts(APIView):
 
     def getbalancedetails(self, request, format=None):
         # retrieve companyName, carbonBalance and cashBalance from CompanyAccount
-        accounts = CompanyAccount.objects().values('companyName', 'carbonBalance', 'cashBalance')
+        accounts = CompanyAccount.objects.values('companyName', 'carbonBalance', 'cashBalance').all()
         return Response(accounts)
     
     def post(self, request, format=None):
@@ -33,7 +33,7 @@ class ListCompanyAccounts(APIView):
     def put(self, request, format=None):
         serializer = CompanyAccountSerializers(data=request.data)
         if serializer.is_valid():
-            serializer.update()
+            serializer.save()
             return Response(serializer.data, status=201)
         return Response(serializer.errors, status=400)
 

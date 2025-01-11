@@ -3,12 +3,12 @@ from django.utils.timezone import now
 
 # CompanyAccount model
 class CompanyAccount(models.Model):
-    company_name = models.CharField(max_length=256)
-    carbon_balance = models.IntegerField(default=0)
-    cash_balance = models.FloatField(default=0.00)
-    active_account = models.BooleanField(default=True)
-    created_datetime = models.DateTimeField(default=now)
-    updated_datetime = models.DateTimeField(auto_now=True)
+    companyName = models.CharField(max_length=256)
+    carbonBalance = models.IntegerField(default=0)
+    cashBalance = models.FloatField(default=0.00)
+    activeAccount = models.BooleanField(default=True)
+    createdDatetime = models.DateTimeField(default=now)
+    updatedDatetime = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.company_name
+        return self.companyName

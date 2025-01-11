@@ -5,12 +5,12 @@ from outstandingRequest.models import OutstandingRequest
 # RequestReceived model
 class RequestReceived(models.Model):
     request = models.ForeignKey(OutstandingRequest, on_delete=models.CASCADE, related_name='alerts')
-    alert_datetime = models.DateTimeField()
-    alert_text = models.TextField()
-    alert_status = models.CharField(max_length=50)
-    alert_view_date = models.DateTimeField(null=True, blank=True)
-    created_datetime = models.DateTimeField(default=now)
-    updated_datetime = models.DateTimeField(auto_now=True)
+    alertDatetime = models.DateTimeField()
+    alertText = models.TextField()
+    alertStatus = models.CharField(max_length=50)
+    alertViewDate = models.DateTimeField(null=True, blank=True)
+    createdDatetime = models.DateTimeField(default=now)
+    updatedDatetime = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return f"Alert for Request ID {self.request.id}"
