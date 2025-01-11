@@ -3,9 +3,20 @@ import { useState } from "react";
 import RequestContainer from "../components/RequestContainer";
 import RequestForm from "../components/RequestForm";
 import Button from "react-bootstrap/Button";
+import api from "../httpCommon";
 
 const LandingPage = () => {
   const [addRequest, setAddRequest] = useState(false);
+
+  const fetchData= () => {
+    api.post(`/api/token`, { 
+        user 
+    })
+    .then(res => {
+      console.log(res);
+      console.log(res.data);
+    })
+  }
 
   const records = [
     {
