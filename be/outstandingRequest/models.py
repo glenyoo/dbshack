@@ -9,7 +9,7 @@ class OutstandingRequest(models.Model):
         ('SELL', 'Sell'),
     ]
     requestor = models.ForeignKey(CompanyAccount, on_delete=models.CASCADE, related_name='requests_made')
-    target_company = models.ForeignKey(CompanyAccount, on_delete=models.CASCADE, related_name='requests_received')
+    company = models.ForeignKey(CompanyAccount, on_delete=models.CASCADE, related_name='requests_received')
     carbon_unit_price = models.FloatField(default=0)
     carbon_quantity = models.FloatField(default=0)
     request_reason = models.TextField()

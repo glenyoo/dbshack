@@ -1,5 +1,6 @@
 from django.core.management.base import BaseCommand, CommandError
 from outstandingRequest.models import OutstandingRequest
+from companyAccount.models import CompanyAccount
 
 
 class Command(BaseCommand):
@@ -18,5 +19,8 @@ class Command(BaseCommand):
             (12, 2000, 2025, 500.25, 3.5, 'Projected excess carbon credits for 2025', 'Pending', 'Buy', '2025-01-11 09:01:00', '2025-01-11 09:01:02')
         ]
         for vals in data:
-            id, companyid,requesterCompanyid, carbonunitprice,carbonquantity,requestreason,requeststatus= vals
-            # instance = OutstandingRequest(id=id, requestor = , target_company=)
+            id, companyid,requesterCompanyid, carbonunitprice,carbonquantity,requestreason,requeststatus,requesttype,created,updated= vals
+            requestor = CompanyAccount.objects.filter(id=requesterCompanyid).first()
+            company = CompanyAccount.objects.filter(id=companyid).first()
+            instance = OutstandingRequest(id=id, requestor=requestor, company=company, carbon_unit_price=carbonunitprice,carbon_quantity=carbonquantity, request_reason=requestreason,request_status=requeststatus,request_type=requesttype)
+            instance.save()
