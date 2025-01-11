@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_simplejwt',
     'companyAccount',
+    'user',
 ]
 
 MIDDLEWARE = [
@@ -58,6 +59,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'backend.urls'
+
+AUTH_USER_MODEL = 'user.customUser'
 
 TEMPLATES = [
     {
