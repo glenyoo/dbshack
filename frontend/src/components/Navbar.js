@@ -7,17 +7,14 @@ export default function Navbar() {
     <MDBNavbar expand='lg' light bgColor='light'>
       <MDBContainer fluid>
         <MDBNavbarBrand>
-          <Link to="/pages/" className="navbar-brand">BrandName</Link>
+          <Link to="/home" className="navbar-brand">BrandName</Link>
         </MDBNavbarBrand>
         <MDBNavbarNav right fullWidth={false} className='mb-2 mb-lg-0'>
           <MDBNavbarItem>
-            <Link to="/pages/" className="navbar-brand">Home</Link>
+            <Link to="/home" className="navbar-brand">Home</Link>
           </MDBNavbarItem>
           <MDBNavbarItem>
-            <Link to="/pages/requests" className="navbar-brand">Requests</Link>
-          </MDBNavbarItem>
-          <MDBNavbarItem>
-            <Link to="/pages/signout" className="navbar-brand">Signout</Link>
+            <Link to="/requests" className="navbar-brand">Requests</Link>
           </MDBNavbarItem>
         </MDBNavbarNav>
       </MDBContainer>
