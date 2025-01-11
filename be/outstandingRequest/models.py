@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.timezone import now
+from companyAccount.models import CompanyAccount
 
 # OutstandingRequest model
 class OutstandingRequest(models.Model):

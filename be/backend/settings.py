@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'companyAccount',
     'user',
+    'requestReceived',
+    'outstandingRequest'
 ]
 
 MIDDLEWARE = [

@@ -1,6 +1,6 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .models import CompanyAccount, OutstandingRequest, RequestReceived
+from .models import OutstandingRequest
 from .serializers import OutstandingRequestSerializers
 
 class ListOutstandingRequest(APIView):

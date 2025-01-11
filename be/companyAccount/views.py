@@ -1,6 +1,6 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .models import CompanyAccount, OutstandingRequest, RequestReceived
+from .models import CompanyAccount
 from .serializers import CompanyAccountSerializers
 
 class ListCompanyAccounts(APIView):

@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.timezone import now
+from outstandingRequest.models import OutstandingRequest
 
 # RequestReceived model
 class RequestReceived(models.Model):

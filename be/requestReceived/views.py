@@ -1,10 +1,8 @@
-from django.shortcuts import render
-
 # Create your views here.
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .models import CompanyAccount, OutstandingRequest, RequestReceived
-from .serializers import OutstandingRequestSerializers
+from .models import RequestReceived
+from .serializers import RequestReceivedSerializers
 
 class RequestReceivedRequest(APIView):
 
