@@ -5,7 +5,8 @@ from .models import CompanyAccount
 from .serializers import CompanyAccountSerializers
 
 class ListCompanyAccounts(APIView):
-    def get(self, request, format=None):
+
+    def getall(self, request, format=None):
         accounts = CompanyAccount.objects.all()
         serializer = CompanyAccountSerializers(accounts)
         return Response(serializer.data)
@@ -16,3 +17,29 @@ class ListCompanyAccounts(APIView):
     #         return Response('worked')
         
     #     return Response('done')
+
+    def getbalancedetails(self, request, format=None):
+        # retrieve companyName, carbonBalance and cashBalance from CompanyAccount
+        accounts = CompanyAccount.objects().values('companyName', 'carbonBalance', 'cashBalance')
+        return Response(accounts)
+    
+    def post(self, request, format=None):
+        serializer = CompanyAccountSerializers(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=201)
+        return Response(serializer.errors, status=400)
+    
+    def put(self, request, format=None):
+        serializer = CompanyAccountSerializers(data=request.data)
+        if serializer.is_valid():
+            serializer.update()
+            return Response(serializer.data, status=201)
+        return Response(serializer.errors, status=400)
+
+    def delete(self, request, format=None):
+        serializer = CompanyAccountSerializers(data=request.data)
+        if serializer.is_valid():
+            serializer.delete()
+            return Response(serializer.data, status=201)
+        return Response(serializer.errors, status=400)
