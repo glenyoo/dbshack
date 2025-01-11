@@ -1,7 +1,15 @@
 from rest_framework import serializers
 from .models import OutstandingRequest
 
-class OutstandingRequestSerializers(serializers.Serializer):
+class OutstandingRequestSerializers(serializers.ModelSerializer):
     class Meta:
         model = OutstandingRequest 
         fields = ['*']
+    # class Meta:
+    #     model = CompanyAccount 
+    #     fields = '__all__'
+    # def create(self, validated_data):
+    #     return CompanyAccount(**validated_data)
+    
+    # def to_representation(self, instance):
+    #     return super().to_representation(instance)
