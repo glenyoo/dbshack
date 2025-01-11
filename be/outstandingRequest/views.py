@@ -3,7 +3,6 @@ from rest_framework.response import Response
 from .models import OutstandingRequest
 from .models import CompanyAccount
 from .serializers import OutstandingRequestSerializers
-import django.utils.timezone
 
 class ListOutstandingRequest(APIView):
 
@@ -25,11 +24,6 @@ class ListOutstandingRequest(APIView):
     
     def post(self, request, format=None):
         # debug: date time format
-        # must post to requiestReceived table with the new request
-        createdDatetime = django.utils.timezone.now()
-        updatedDatetime = createdDatetime
-        request.data['createdDatetime'] = createdDatetime
-        request.data['updatedDatetime'] = updatedDatetime
         serializer = OutstandingRequestSerializers(request.data)
         if serializer.is_valid():
             serializer.save()
@@ -37,9 +31,7 @@ class ListOutstandingRequest(APIView):
         return Response(serializer.errors, status=400)
     
     def put(self, request, format=None):
-        serializer = OutstandingRequestSerializers(data=request.data)
-        updateDatetime = django.utils.timezone.now()
-        request.data['updatedDatetime'] = updateDatetime
+        serializer = OutstandingRequestSerializers(request.data)
         # check if the company id exists
         # companyId
         if serializer.is_valid():
