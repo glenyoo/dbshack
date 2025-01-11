@@ -1,4 +1,5 @@
 import React from 'react'
+import Request from './Request';
 import Table from 'react-bootstrap/Table';
 
 const RequestContainer = () => {
@@ -6,8 +7,24 @@ const RequestContainer = () => {
         {
             requestDate: "11/01/2025",
             companyName: "Test",
-            createdDatetime: "11/01/2025 09:01:00",
             carbonPrice: "1",
+            carbonQuantity: "400",
+            requestReason: "Projected excess carbon credits for 2025",
+            requestType: "Sell"
+        },
+        {
+            requestDate: "11/01/2025",
+            companyName: "Test2",
+            carbonPrice: "1",
+            carbonQuantity: "600",
+            requestReason: "Projected excess carbon credits for 2025",
+            requestType: "Sell"
+        },
+        {
+            requestDate: "11/01/2025",
+            companyName: "Test3",
+            carbonPrice: "1",
+            carbonQuantity: "700",
             requestReason: "Projected excess carbon credits for 2025",
             requestType: "Sell"
         }
@@ -29,6 +46,17 @@ const RequestContainer = () => {
         </tr>
       </thead>
       <tbody>
+        {data.map((request, index) => 
+            <Request
+                key = {index}
+                requestDate = {request.requestDate}
+                companyName = {request.companyName}
+                carbonPrice = {request.carbonPrice}
+                carbonQuantity = {request.carbonQuantity}
+                requestReason = {request.requestReason}
+                requestType = {request.requestType}
+            />
+        )}
       </tbody>
     </Table>
     </>
