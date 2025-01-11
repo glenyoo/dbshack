@@ -22,7 +22,7 @@ class ListCompanyAccounts(APIView):
         updatedDatetime = createdDatetime
         request.data['createdDatetime'] = createdDatetime
         request.data['updatedDatetime'] = updatedDatetime
-        serializer = CompanyAccountSerializers(request.data)
+        serializer = CompanyAccountSerializers(data=request.data)
         # serializer = CompanyAccountSerializers(data=request.data)
         if serializer.is_valid():
             serializer.save()
