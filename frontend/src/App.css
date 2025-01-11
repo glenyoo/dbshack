@@ -36,3 +36,54 @@
     transform: rotate(360deg);
   }
 }
+
+/* Add these styles to your CSS file */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  color: white;
+  padding: 1rem;
+}
+
+.nav-items {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-items a {
+  color: white;
+  text-decoration: none;
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .nav-items {
+      display: block;
+      position: absolute;
+      background-color: #333;
+      top: 100%;
+      left: 0;
+      right: 0;
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: transform 0.3s ease;
+  }
+
+  .nav-items.open {
+      transform: scaleY(1);
+  }
+
+  .nav-toggle {
+      display: block;
+  }
+}
