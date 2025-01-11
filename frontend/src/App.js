@@ -21,13 +21,6 @@ function App() {
       </div>
     </Router>
   );
-
-  // return (
-  //   <div>
-  //     <AppNavbar />
-  //     {/* <Login /> */}
-  //   </div>
-  // );
 }
 
 
