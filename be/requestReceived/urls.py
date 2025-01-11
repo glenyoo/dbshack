@@ -1,6 +1,6 @@
 
 from django.urls import path
-from .views import RequestReceivedRequest
+from .views import ListRequestReceived
 urlpatterns = [
-    path('', RequestReceivedRequest.as_view(), name='home'),
+    path('', ListRequestReceived.as_view(), name='home'),
 ]
