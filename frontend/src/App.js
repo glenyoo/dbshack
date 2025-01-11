@@ -1,11 +1,8 @@
-// src/App.js
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './Home';
-import About from './About';
-import Services from './Services';
-import Contact from './Contact';
-import Login from './Login';
+import Home from './pages/Home';
+import Requests from './pages/Requests';
+import SignOut from './pages/SignOut';
 import AppNavbar from './components/Navbar';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css'
 
@@ -15,13 +12,10 @@ function App() {
       <div>
         <AppNavbar />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path="/pages/" element={<Home />} />
+          <Route path="/pages/requests" element={<Requests />} />
+          <Route path="/pages/signout" element={<SignOut />} />
         </Routes>
-
-        
       </div>
     </Router>
   );
