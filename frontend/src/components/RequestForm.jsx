@@ -1,16 +1,20 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Button from 'react-bootstrap/Button';
 
-const RequestForm = (handleSubmit, handleCancel) => {
+const RequestForm = ({requestId, submitText, handleSubmit, handleCancel}) => {
   const [requestDate, setRequestDate] = useState("");
   const [companyName, setCompanyName] = useState("");
   const [carbonPrice, setCarbonPrice] = useState(0);
   const [carbonQuantity, setCarbonQuantity] = useState(0);
-  const [requestType, setRequestType] = useState("sell");
+  const [requestType, setRequestType] = useState("buy");
   const [requestReason, setRequestReason] = useState("");
+
+  useEffect(() => {
+    // Fetch requestId
+  }, [requestId])
 
   return (
     <Form>
@@ -92,7 +96,7 @@ const RequestForm = (handleSubmit, handleCancel) => {
       </Form.Group>
 
       <Button onClick={handleSubmit} variant="primary" type="submit">
-        Add
+        {submitText}
       </Button>
       <Button onClick={handleCancel} variant="primary" type="submit">
         Cancel

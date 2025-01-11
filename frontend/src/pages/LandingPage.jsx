@@ -37,7 +37,7 @@ const LandingPage = () => {
   return (
     <>
       {addRequest ? (
-        <RequestForm handleCancel={() => setAddRequest(false)}/>
+        <RequestForm submitText='Add' handleCancel={() => setAddRequest(false)}/>
       ) : (
         <>
           <div className='d-flex justify-content-between'>
