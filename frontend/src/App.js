@@ -4,6 +4,8 @@ import Home from './pages/Home';
 import Requests from './pages/Requests';
 import SignOut from './pages/SignOut';
 import AppNavbar from './components/Navbar';
+import RequestContainer from './components/RequestContainer';
+import RequestForm from './components/RequestForm';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css'
 
 function App() {
