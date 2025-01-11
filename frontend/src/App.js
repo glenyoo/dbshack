@@ -6,6 +6,7 @@ import 'mdb-react-ui-kit/dist/css/mdb.min.css'
 import React from 'react';
 import AppNavbar from './components/Navbar';
 import RequestContainer from './components/RequestContainer';
+import RequestForm from './components/RequestForm';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css'
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
     <div>
       <AppNavbar />
       <RequestContainer />
+      <RequestForm />
       {/* Other components */}
     </div>
   );
